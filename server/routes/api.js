@@ -39,5 +39,24 @@ router.post('/convert', (req, res) => {
   }
 });
 
+router.post('/validate', (req, res) => {
+  const { jsonString } = req.body;
+
+  if (!jsonString) {
+    return res.status(400).json({
+      success: false,
+      error: 'JSON string é obrigatória'
+    });
+  }
+
+  const validation = JsonProcessor.validateJson(jsonString);
+
+  res.json({
+    success: true,
+    valid: validation.valid,
+    error: validation.error || null
+  });
+});
+
 
 module.exports = router;
