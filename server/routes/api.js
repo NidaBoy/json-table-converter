@@ -58,5 +58,13 @@ router.post('/validate', (req, res) => {
   });
 });
 
+router.get('/health', (req, res) => {
+  res.json({
+    success: true,
+    message: 'API funcionando corretamente',
+    timestamp: new Date().toISOString()
+  });
+});
+
 
 module.exports = router;
