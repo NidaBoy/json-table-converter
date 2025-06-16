@@ -1,0 +1,30 @@
+Snippet de código
+
+# Node.js / Backend specific ignores
+node_modules/
+npm-debug.log*
+.env
+/.vscode/
+
+# React / Frontend specific ignores
+client/node_modules/
+client/build/
+client/.env
+client/npm-debug.log*
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE specific ignores (if applicable)
+.idea/             # IntelliJ/WebStorm
+*.iml              # IntelliJ project files
+*.swp              # Vim swap files
+*~                 # Backup files from various editors
+
+# Test/Coverage reports
+/coverage/
+
+# Misc
+.cache/
+.eslintcache
