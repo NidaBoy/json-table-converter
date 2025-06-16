@@ -36,4 +36,67 @@ const JsonProcessor = {
     }
     return [];
   },
-}
+
+    // Converte JSON para formato de tabela
+  convertToTable(jsonData) {
+    try {
+      let data;
+      
+      // Parse string JSON se necessário
+      if (typeof jsonData === 'string') {
+        data = JSON.parse(jsonData);
+      } else {
+        data = jsonData;
+      }
+
+      // Se não é array, converte para array
+      if (!Array.isArray(data)) {
+        data = [data];
+      }
+
+      // Extrai as colunas (chaves)
+      const columns = this.extractKeys(data);
+      
+      // Converte os dados para formato de tabela
+      const rows = data.map((item, index) => {
+        const row = { _index: index + 1 };
+        columns.forEach(col => {
+          row[col] = this.formatValue(item[col]);
+        });
+        return row;
+      });
+
+      return {
+        columns: ['_index', ...columns],
+        rows,
+        totalRows: rows.length,
+        totalColumns: columns.length
+      };
+    } catch (error) {
+      throw new Error(`Erro ao processar JSON: ${error.message}`);
+    }
+  },
+
+    // Formata valores para exibição na tabela
+  formatValue(value) {
+    if (value === null) return 'null';
+    if (value === undefined) return 'undefined';
+    if (typeof value === 'object') {
+      return JSON.stringify(value);
+    }
+    if (typeof value === 'boolean') {
+      return value ? 'true' : 'false';
+    }
+    return String(value);
+  },
+
+  // Valida se o JSON é válido
+  validateJson(jsonString) {
+    try {
+      const parsed = JSON.parse(jsonString);
+      return { valid: true, data: parsed };
+    } catch (error) {
+      return { valid: false, error: error.message };
+    }
+  }
+};
