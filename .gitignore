@@ -1,5 +1,3 @@
-Snippet de código
-
 # Node.js / Backend specific ignores
 node_modules/
 npm-debug.log*
