@@ -38,4 +38,23 @@ const JsonProcessor = {
       throw new Error(`Erro ao processar JSON: ${error.message}`);
     }
   },
+
+  formatValue(value) {
+    if (value === null) return 'null';
+    if (value === undefined) return 'undefined';
+    if (typeof value === 'object') return JSON.stringify(value);
+    if (typeof value === 'boolean') return value ? 'true' : 'false';
+    return String(value);
+  },
+
+  validateJson(jsonString) {
+    try {
+      const parsed = JSON.parse(jsonString);
+      return { valid: true, data: parsed };
+    } catch (error) {
+      return { valid: false, error: error.message };
+    }
+  }
 };
+
+module.exports = JsonProcessor;
