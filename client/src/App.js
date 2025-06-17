@@ -50,16 +50,18 @@ function App() {
           <div className="content-grid">
             {/* Painel de Input */}
             <div className="input-panel">
-              {/*<JsonInput 
+              <JsonInput 
                 onTableData={handleTableData}
                 onError={handleError}
                 onLoading={handleLoading}
                 loading={loading}
               />
-              */}
+
+              {/*
               {!tableData && !error && (
                 <Examples onExampleSelect={handleTableData} />
               )}
+                  */}
             </div>
 
             {/* Painel de Resultado */}
