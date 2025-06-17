@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import { FileText, Upload, Trash2, Check } from 'lucide-react';
 import toast from 'react-hot-toast';
