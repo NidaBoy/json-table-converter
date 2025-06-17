@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Rotas da API
-app.use('/api', apiRoutes);
+app.use('/', apiRoutes);
 
 // Rota de fallback para SPA React
 if (process.env.NODE_ENV === 'production') {

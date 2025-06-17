@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const convertJsonToTable = async (jsonString) => {
-  const response = await axios.post('/convert', { json: jsonString });
+  const response = await axios.post('/convert', { jsonData: jsonString });
   return response.data;
 };
 
