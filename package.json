@@ -9,6 +9,8 @@
     "client": "cd client && npm start",
     "build": "cd client && npm run build",
     "start": "node server/index.js",
+    "tests:server": "jest tests/server",
+    "tests": "npm run test:server",
     "install-all": "npm install && cd client && npm install"
   },
   "dependencies": {
@@ -19,7 +21,10 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1",
-    "concurrently": "^8.2.0"
+
+    "concurrently": "^8.2.0",
+    "jest": "^30.0.0"
+
   },
   "keywords": ["json", "table", "converter", "react", "express"],
   "author": "Daniel Barreto Torres",
