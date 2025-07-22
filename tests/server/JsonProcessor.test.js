@@ -1,4 +1,4 @@
-const JsonProcessor = require('../utils/JsonProcessor');
+const JsonProcessor = require('/server/utils/JsonProcessor');
 
 describe('JsonProcessor.extractKeys', () => {
   test('extrai chaves únicas de um array de objetos simples', () => {

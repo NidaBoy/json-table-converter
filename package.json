@@ -9,6 +9,8 @@
     "client": "cd client && npm start",
     "build": "cd client && npm run build",
     "start": "node server/index.js",
+    "tests:server": "jest tests/server",
+    "tests": "npm run test:server",
     "install-all": "npm install && cd client && npm install"
   },
   "dependencies": {
